@@ -17,7 +17,7 @@ repositories {
     mavenCentral()
 }
 
-extra["snippetsDir"] = file("build/generated-snippets")
+val snippetsDir = file("build/generated-snippets")
 extra["springBootAdminVersion"] = "2.1.5"
 extra["springCloudVersion"] = "Greenwich.SR1"
 
@@ -50,12 +50,11 @@ tasks.withType<KotlinCompile> {
     }
 }
 
-// FIXME fix this issue
-//tasks.test {
-//    outputs.dir(snippetsDir)
-//}
-//
-//tasks.asciidoctor {
-//    inputs.dir(snippetsDir)
-//    dependsOn(test)
-//}
+tasks.test {
+    outputs.dir(snippetsDir)
+}
+
+tasks.asciidoctor {
+    inputs.dir(snippetsDir)
+    dependsOn(tasks.test)
+}
