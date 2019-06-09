@@ -1,0 +1,19 @@
+
+# Gradle Build
+FROM gradle:5.4.1-jdk8 as builder
+
+COPY --chown=gradle:gradle . /home/gradle/poc-java11-service
+WORKDIR /home/gradle/poc-java11-service
+RUN gradle build
+
+# Run application
+FROM openjdk:8-jre-slim
+
+RUN useradd -u 1234 app
+
+EXPOSE 8080
+COPY --from=builder --chown=app:app /home/gradle/poc-java11-service/build/libs/poc-java11-service-0.1.0-SNAPSHOT.jar /home/app/
+WORKDIR /home/app
+
+USER app
+CMD java $ARGS -Dspring.profiles.active=from-docker -jar poc-java11-service-0.1.0-SNAPSHOT.jar
