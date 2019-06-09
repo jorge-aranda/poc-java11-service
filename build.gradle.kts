@@ -5,8 +5,8 @@ plugins {
     id("org.asciidoctor.convert") version "1.5.3"
     id("org.springframework.boot") version "2.1.5.RELEASE"
     id("io.spring.dependency-management") version "1.0.7.RELEASE"
-    kotlin("jvm") version "1.2.71"
-    kotlin("plugin.spring") version "1.2.71"
+    kotlin("jvm") version "1.3.31"
+    kotlin("plugin.spring") version "1.3.31"
 }
 
 group = "es.jaranda.poc"
