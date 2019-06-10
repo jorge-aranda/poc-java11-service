@@ -1,3 +1,4 @@
+
 package es.jaranda.poc.java11.service
 
 import org.junit.Test
@@ -9,8 +10,9 @@ import org.springframework.test.context.junit4.SpringRunner
 @SpringBootTest
 class PocJava11ServiceApplicationTests {
 
-	@Test
-	fun contextLoads() {
-	}
+    @Test
+    fun contextLoads() {
+		// testing context
+    }
 
 }
