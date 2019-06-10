@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "es.jaranda.poc"
-version = "0.1.0-SNAPSHOT"
+version = "0.1.0.RELEASE"
 description = "PoC Java 11 Service made with Kotlin and Spring Boot"
 
 java.sourceCompatibility = JavaVersion.VERSION_11
