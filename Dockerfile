@@ -1,6 +1,6 @@
 
 # Gradle Build
-FROM openjdk:8 as builder
+FROM openjdk:11-jdk-stretch as builder
 RUN useradd -u 1234 gradle
 
 COPY --chown=gradle:gradle . /home/gradle/poc-java11-service
@@ -8,7 +8,7 @@ WORKDIR /home/gradle/poc-java11-service
 RUN ./gradlew build
 
 # Run application
-FROM openjdk:8-jre-slim
+FROM openjdk:11-stretch
 
 RUN useradd -u 1234 app
 
