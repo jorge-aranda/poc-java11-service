@@ -14,7 +14,7 @@ RUN useradd -u 1234 app
 
 EXPOSE 8080
 EXPOSE 9090
-COPY --from=builder --chown=app:app /home/gradle/poc-java11-service/build/libs/poc-java11-service-0.1.0.RELEASE.jar /home/app/
+COPY --from=builder --chown=app:app /home/gradle/poc-java11-service/build/libs/poc-java11-service-0.1.1.RELEASE.jar /home/app/
 WORKDIR /home/app
 
 USER app
@@ -26,4 +26,4 @@ CMD java $ARGS -XX:+PrintFlagsFinal -Dspring.profiles.active=from-docker \
          -Dcom.sun.management.jmxremote.authenticate=false \
          -Dcom.sun.management.jmxremote.local.only=false \
          -Djava.rmi.server.hostname=localhost \
-         -jar poc-java11-service-0.1.0.RELEASE.jar
+         -jar poc-java11-service-0.1.1.RELEASE.jar
